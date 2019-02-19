@@ -1,4 +1,4 @@
-package teamrtg.highlands.block;
+package teamrtg.highlands.init;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -16,6 +16,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 
+import teamrtg.highlands.block.BlockHighlandsLeaves;
+import teamrtg.highlands.block.BlockHighlandsLog;
+import teamrtg.highlands.block.BlockHighlandsPlanks;
+import teamrtg.highlands.block.BlockHighlandsPlant;
+import teamrtg.highlands.block.BlockHighlandsSapling;
+import teamrtg.highlands.block.BlockHighlandsStair;
 import teamrtg.highlands.reference.ModInfo;
 
 public class HighlandsBlocks {
@@ -32,17 +38,17 @@ public class HighlandsBlocks {
     };
 
     //tree blocks
-    public static Block[] planks;
-    public static Block[] woods;
-    public static Block[] leaves;
-    public static Block[] saplings;
+    public static BlockHighlandsPlanks[] planks;
+    public static BlockHighlandsLog[] woods;
+    public static BlockHighlandsLeaves[] leaves;
+    public static BlockHighlandsSapling[] saplings;
 
     //wood products
     public static Block[] doors;
     public static Block[] fences;
     public static Block[] slabs;
     public static Block[] doubleSlabs;
-    public static Block[] stairs;
+    public static BlockHighlandsStair[] stairs;
 
     //plants
     public static Block[] plants;
@@ -68,32 +74,26 @@ public class HighlandsBlocks {
         EnumTypePlant.DUNEGRASS.setMetaLookup();
 
         //initialize arrays
-        planks = new Block[NUM_TREE_TYPES];
-        woods = new Block[NUM_TREE_TYPES];
-        leaves = new Block[NUM_TREE_TYPES];
-        saplings = new Block[NUM_TREE_TYPES];
+        planks = new BlockHighlandsPlanks[NUM_TREE_TYPES];
+        woods = new BlockHighlandsLog[NUM_TREE_TYPES];
+        leaves = new BlockHighlandsLeaves[NUM_TREE_TYPES];
+        saplings = new BlockHighlandsSapling[NUM_TREE_TYPES];
         doors = new Block[NUM_TREE_TYPES];
         fences = new Block[NUM_TREE_TYPES];
         slabs = new Block[NUM_TREE_TYPES];
         doubleSlabs = new Block[NUM_TREE_TYPES];
-        stairs = new Block[NUM_TREE_TYPES];
+        stairs = new BlockHighlandsStair[NUM_TREE_TYPES];
 
         plants = new Block[NUM_PLANTS];
 
         //initialize blocks within arrays
         for (int i = 0; i < NUM_TREE_TYPES; i++) {
-            planks[i] = new BlockHighlandsPlanks(EnumTypeTree.META_LOOKUP[i], ModInfo.MOD_ID + "_" + EnumTypeTree.META_LOOKUP[i].getName());
-            woods[i] = new BlockHighlandsLog(EnumTypeTree.META_LOOKUP[i], ModInfo.MOD_ID + "_" + EnumTypeTree.META_LOOKUP[i].getName());
-            leaves[i] = new BlockHighlandsLeaves(EnumTypeTree.META_LOOKUP[i], ModInfo.MOD_ID + "_" + EnumTypeTree.META_LOOKUP[i].getName());
-            saplings[i] = new BlockHighlandsSapling(EnumTypeTree.META_LOOKUP[i], ModInfo.MOD_ID + "_" + EnumTypeTree.META_LOOKUP[i].getName());
-            stairs[i] = new BlockHighlandsStair(EnumTypeTree.META_LOOKUP[i], ModInfo.MOD_ID + "_" + EnumTypeTree.META_LOOKUP[i].getName(), planks[i]);
+            planks[i] = register(event, new BlockHighlandsPlanks(EnumTypeTree.META_LOOKUP[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_planks");
+            woods[i] = register(event, new BlockHighlandsLog(EnumTypeTree.META_LOOKUP[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_log");
+            leaves[i] = register(event, new BlockHighlandsLeaves(EnumTypeTree.META_LOOKUP[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_leaves");
+            saplings[i] = register(event, new BlockHighlandsSapling(EnumTypeTree.META_LOOKUP[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_saplings");
+            stairs[i] = register(event, new BlockHighlandsStair(EnumTypeTree.META_LOOKUP[i], planks[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_stairs");
 
-
-            event.getRegistry().register(planks[i]);
-            event.getRegistry().register(stairs[i]);
-            event.getRegistry().register(woods[i]);
-            event.getRegistry().register(leaves[i]);
-            event.getRegistry().register(saplings[i]);
 
             OreDictionary.registerOre("logWood", woods[i]);
             OreDictionary.registerOre("plankWood", planks[i]);
@@ -106,7 +106,7 @@ public class HighlandsBlocks {
         }
 
         for (int i = 0; i < NUM_PLANTS; i++) {
-            plants[i] = new BlockHighlandsPlant(EnumTypePlant.META_LOOKUP[i].name);
+            plants[i] = register(event, new BlockHighlandsPlant(), EnumTypePlant.META_LOOKUP[i].name);
 
             event.getRegistry().register(plants[i]);
 

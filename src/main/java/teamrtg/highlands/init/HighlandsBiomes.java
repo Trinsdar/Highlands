@@ -1,4 +1,4 @@
-package teamrtg.highlands.biome;
+package teamrtg.highlands.init;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,29 @@ import net.minecraftforge.common.BiomeManager.BiomeType;
 
 import teamrtg.highlands.Config;
 import teamrtg.highlands.HighlandsSettings;
+import teamrtg.highlands.biome.BiomeGenAdirondacks;
+import teamrtg.highlands.biome.BiomeGenAdirondacksFoothills;
+import teamrtg.highlands.biome.BiomeGenAlps;
+import teamrtg.highlands.biome.BiomeGenAlpsFoothills;
+import teamrtg.highlands.biome.BiomeGenBadlands;
+import teamrtg.highlands.biome.BiomeGenBadlandsFoothills;
+import teamrtg.highlands.biome.BiomeGenBaldHill;
+import teamrtg.highlands.biome.BiomeGenBambooForest;
+import teamrtg.highlands.biome.BiomeGenBaseHighlands;
+import teamrtg.highlands.biome.BiomeGenDryForest;
+import teamrtg.highlands.biome.BiomeGenDunes;
+import teamrtg.highlands.biome.BiomeGenGreyMountains;
+import teamrtg.highlands.biome.BiomeGenGreyMountainsFoothills;
+import teamrtg.highlands.biome.BiomeGenHighlands;
+import teamrtg.highlands.biome.BiomeGenLake;
+import teamrtg.highlands.biome.BiomeGenLowlands;
+import teamrtg.highlands.biome.BiomeGenMeadow;
+import teamrtg.highlands.biome.BiomeGenMojave;
+import teamrtg.highlands.biome.BiomeGenPinelands;
+import teamrtg.highlands.biome.BiomeGenPoplarHills;
+import teamrtg.highlands.biome.BiomeGenRedwoodForest;
+import teamrtg.highlands.biome.BiomeGenTropHills;
+import teamrtg.highlands.biome.BiomeGenTropicalIslands;
 import teamrtg.highlands.util.BiomeUtils;
 
 /*
