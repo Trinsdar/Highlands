@@ -17,12 +17,12 @@ public class HighlandsRecipes {
         for (int i = 0; i < HighlandsBlocks.NUM_TREE_TYPES; i++) {
             if (HighlandsBlocks.planks[i] != null && HighlandsBlocks.woods[i] != null) {
                 //Bamboo stem only crafts into one plank
-                if (i == HighlandsBlocks.EnumTypeTree.BAMBOO.getMetadata()) {
-                    GameRegistry.addShapelessRecipe(new ResourceLocation(""), null,  new ItemStack(HighlandsBlocks.planks[i], 1), new ItemStack(HighlandsBlocks.woods[i]));
-                }
-                else {
-                    GameRegistry.addShapelessRecipe(new ItemStack(HighlandsBlocks.planks[i], 4), new ItemStack(HighlandsBlocks.woods[i]));
-                }
+//                if (i == HighlandsBlocks.EnumTypeTree.BAMBOO.getMetadata()) {
+//                    GameRegistry.addShapelessRecipe(new ResourceLocation(""), null,  new ItemStack(HighlandsBlocks.planks[i], 1), new ItemStack(HighlandsBlocks.woods[i]));
+//                }
+//                else {
+//                    GameRegistry.addShapelessRecipe(new ItemStack(HighlandsBlocks.planks[i], 4), new ItemStack(HighlandsBlocks.woods[i]));
+//                }
 
                 //placeholder - recipes for wooden stairs and half slabs
                 GameRegistry.addShapedRecipe(new ResourceLocation(HighlandsBlocks.planks[i].toString() + "Stairs"), null, new ItemStack(Blocks.OAK_STAIRS, 4), "x  ", "xx ", "xxx", 'x', HighlandsBlocks.planks[i]);
@@ -35,14 +35,14 @@ public class HighlandsRecipes {
         }
 
         //Plants recipes
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 6), new ItemStack(HighlandsBlocks.plants[0]));
-        GameRegistry.addShapedRecipe(new ItemStack(Items.PAPER, 3), "   ", "xxx", "   ", 'x', new ItemStack(HighlandsBlocks.plants[1]));
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.STRING, 1), new ItemStack(HighlandsBlocks.plants[2]));
+//        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 6), new ItemStack(HighlandsBlocks.plants[0]));
+//        GameRegistry.addShapedRecipe(new ItemStack(Items.PAPER, 3), "   ", "xxx", "   ", 'x', new ItemStack(HighlandsBlocks.plants[1]));
+//        GameRegistry.addShapelessRecipe(new ItemStack(Items.STRING, 1), new ItemStack(HighlandsBlocks.plants[2]));
         //GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), new ItemStack(HighlandsBlocks.plants[3]));
         //GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), new ItemStack(HighlandsBlocks.plants[4]));
         //GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), new ItemStack(HighlandsBlocks.plants[5]));
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), new ItemStack(HighlandsBlocks.plants[6]));
-        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 10), new ItemStack(HighlandsBlocks.plants[7]));
+//        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 5), new ItemStack(HighlandsBlocks.plants[6]));
+//        GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 10), new ItemStack(HighlandsBlocks.plants[7]));
         //GameRegistry.addShapelessRecipe(new ItemStack(Items.DYE, 1, 12), new ItemStack(HighlandsBlocks.plants[8]));
 
 
