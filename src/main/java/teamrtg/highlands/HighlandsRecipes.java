@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-import teamrtg.highlands.block.HighlandsBlocks;
+import teamrtg.highlands.init.HighlandsBlocks;
 
 public class HighlandsRecipes {
 

@@ -26,15 +26,15 @@ import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import teamrtg.highlands.init.HighlandsBlocks;
 
 public class BlockHighlandsLeaves extends BlockLeaves {
 
     private HighlandsBlocks.EnumTypeTree treeType;
 
-    public BlockHighlandsLeaves(HighlandsBlocks.EnumTypeTree type, String name) {
+    public BlockHighlandsLeaves(HighlandsBlocks.EnumTypeTree type) {
 
         treeType = type;
-        setUnlocalizedName(name + "_leaves");
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setSoundType(SoundType.PLANT);

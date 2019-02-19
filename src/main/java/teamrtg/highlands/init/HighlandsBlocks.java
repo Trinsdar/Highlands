@@ -9,7 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
 
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -45,6 +47,7 @@ public class HighlandsBlocks {
     //plants
     public static Block[] plants;
 
+    @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event){
         EnumTypeTree.ASPEN.setMetaLookup();
         EnumTypeTree.POPLAR.setMetaLookup();
@@ -112,11 +115,6 @@ public class HighlandsBlocks {
         ((BlockHighlandsPlant) plants[EnumTypePlant.THORNBUSH.meta]).thornbush = true;
     }
 
-    public static void constructBlocks() {
-        //initialize EnumType meta lookup
-
-    }
-
     public static void registerRenders() {
 
         for (int i = 0; i < NUM_TREE_TYPES; i++) {
@@ -153,6 +151,16 @@ public class HighlandsBlocks {
 					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "stage=0"));
 		}
 		*/
+    }
+
+    private static <T extends Block> T register(RegistryEvent.Register<Block> event, T block, String name) {
+        block.setRegistryName(new ResourceLocation(ModInfo.MOD_ID, name));
+        block.setUnlocalizedName(ModInfo.MOD_ID + "." + name);
+        block.setCreativeTab(tabHighlands);
+
+        event.getRegistry().register(block);
+
+        return block;
     }
 
 

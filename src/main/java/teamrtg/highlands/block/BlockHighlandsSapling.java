@@ -22,6 +22,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import teamrtg.highlands.generator.HighlandsGenerators;
+import teamrtg.highlands.init.HighlandsBlocks;
 
 public class BlockHighlandsSapling extends BlockBush implements IGrowable {
 
@@ -31,11 +32,10 @@ public class BlockHighlandsSapling extends BlockBush implements IGrowable {
     private static float f = 0.4F;
     private static final AxisAlignedBB SAPLING_BOUNDING_BOX = new AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 
-    public BlockHighlandsSapling(HighlandsBlocks.EnumTypeTree type, String name) {
+    public BlockHighlandsSapling(HighlandsBlocks.EnumTypeTree type) {
 
         super();
         treeType = type;
-        setUnlocalizedName(name + "_sapling");
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
 
         this.setCreativeTab(HighlandsBlocks.tabHighlands);

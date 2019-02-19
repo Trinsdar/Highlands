@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import teamrtg.highlands.init.HighlandsBlocks;
 
 public class BlockHighlandsLog extends BlockLog {
 
@@ -17,13 +18,12 @@ public class BlockHighlandsLog extends BlockLog {
 
     private HighlandsBlocks.EnumTypeTree treeType;
 
-    public BlockHighlandsLog(HighlandsBlocks.EnumTypeTree type, String treeName) {
+    public BlockHighlandsLog(HighlandsBlocks.EnumTypeTree type) {
 
         this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
         setHardness(2.0F);
         setResistance(0.5F);
         setSoundType(SoundType.WOOD);
-        setUnlocalizedName(treeName + "_log");
 
         this.setCreativeTab(HighlandsBlocks.tabHighlands);
 

@@ -3,7 +3,7 @@ package teamrtg.highlands.generator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-import teamrtg.highlands.block.HighlandsBlocks;
+import teamrtg.highlands.init.HighlandsBlocks;
 
 public class HighlandsGenerators {
 

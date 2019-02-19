@@ -13,16 +13,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import teamrtg.highlands.generator.WorldGenPlants;
+import teamrtg.highlands.init.HighlandsBlocks;
 import teamrtg.highlands.reference.ModInfo;
 
 public class BlockHighlandsPlant extends BlockBush implements IGrowable {
 
     public boolean thornbush = false;
 
-    public BlockHighlandsPlant(String name) {
+    public BlockHighlandsPlant() {
 
         super();
-        setUnlocalizedName(ModInfo.MOD_ID + "_" + name);
         this.setCreativeTab(HighlandsBlocks.tabHighlands);
     }
 
