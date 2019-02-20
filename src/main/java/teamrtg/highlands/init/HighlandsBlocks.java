@@ -108,49 +108,9 @@ public class HighlandsBlocks {
         for (int i = 0; i < NUM_PLANTS; i++) {
             plants[i] = register(event, new BlockHighlandsPlant(), EnumTypePlant.META_LOOKUP[i].name);
 
-            event.getRegistry().register(plants[i]);
-
             Blocks.FIRE.setFireInfo(plants[i], 60, 100);
         }
         ((BlockHighlandsPlant) plants[EnumTypePlant.THORNBUSH.meta]).thornbush = true;
-    }
-
-    public static void registerRenders() {
-
-        for (int i = 0; i < NUM_TREE_TYPES; i++) {
-            registerRender(planks[i]);
-            registerRender(woods[i]);
-            registerRender(leaves[i]);
-            registerRender(saplings[i]);
-        }
-
-        for (int i = 0; i < NUM_PLANTS; i++) {
-            registerRender(plants[i]);
-        }
-    }
-
-    private static void registerRender(Block block) {
-
-        Item item = Item.getItemFromBlock(block);
-
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0,
-            new ModelResourceLocation(ModInfo.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "inventory"));
-        /*
-        if(block instanceof BlockHighlandsLeaves){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, 
-					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "check_decay=false,decayable=false"));
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, 
-					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "check_decay=true,decayable=false"));
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, 
-					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "check_decay=false,decayable=true"));
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, 
-					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "check_decay=true,decayable=true"));
-		}
-		if(block instanceof BlockHighlandsSapling){
-			Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, 
-					new ModelResourceLocation(References.MOD_ID + ":" + item.getUnlocalizedName().substring(15), "stage=0"));
-		}
-		*/
     }
 
     private static <T extends Block> T register(RegistryEvent.Register<Block> event, T block, String name) {

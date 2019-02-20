@@ -25,7 +25,7 @@ public class BiomeGenLowlands extends BiomeGenBaseHighlands {
         decorator.grassPerChunk = 4;
         decorator.flowersPerChunk = 0;
 
-        decorator.generateLakes = false;
+        decorator.generateFalls = false;
 
         this.terrainInt1 = 0;
         this.terrainInt2 = 1;

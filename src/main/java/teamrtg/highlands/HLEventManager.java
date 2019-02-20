@@ -15,7 +15,6 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import teamrtg.highlands.generator.HighlandsGenerators;
-import teamrtg.highlands.generator.layer.GenLayerHighlands;
 
 public class HLEventManager {
 
@@ -51,23 +50,6 @@ public class HLEventManager {
             if (biome.equals(Biomes.SAVANNA) && e.getRand().nextInt(3) != 1) {
                 e.setResult(Event.Result.DENY);
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void onGenLayerInitiate(InitBiomeGens e) {
-
-        e.setNewBiomeGens(GenLayerHighlands.initializeAllBiomeGenerators(e.getSeed(), e.getWorldType(), ""));
-    }
-
-    @SubscribeEvent
-    public void onBiomeSize(BiomeSize e) {
-
-        if (e.getWorldType().equals(HighlandsMod.worldTypeHighlands)) {
-            e.setNewSize(HighlandsSettings.HighlandsBiomeSizeDefault);
-        }
-        if (e.getWorldType().equals(HighlandsMod.worldTypeHighlandsLB)) {
-            e.setNewSize(HighlandsSettings.HighlandsBiomeSizeLB);
         }
     }
 

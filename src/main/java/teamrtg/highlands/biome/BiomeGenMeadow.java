@@ -21,7 +21,7 @@ public class BiomeGenMeadow extends BiomeGenBaseHighlands {
         decorator.grassPerChunk = 15;
         decorator.flowersPerChunk = 8;
 
-        decorator.generateLakes = false;
+        decorator.generateFalls = false;
 
         plants.add(HighlandsGenerators.lavender);
         plants.add(HighlandsGenerators.cotton);

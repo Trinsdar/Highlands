@@ -234,30 +234,30 @@ public class HighlandsBiomes {
 
     public static void setUpBiomeManager() {
 
-        for (int i = 0; i < biomesForHighlands.size(); i++) {
-            Biome hlb = biomesForHighlands.get(i);
-            if (!(hlb == null)) {
-                //System.out.println(hlb.biomeName + " has been added to the biome list.");
-
-                BiomeEntry entry = new BiomeEntry(hlb, 10);
-                BiomeType type = (hlb.getTemperature() < 0.3 ? BiomeType.ICY : hlb.getTemperature() < 0.5 ? BiomeType.COOL
-                    : hlb.getTemperature() < 1.0 ? BiomeType.WARM : BiomeType.DESERT);
-                BiomeManager.addBiome(type, entry);
-                if (hlb.getTemperature() >= 0.5 && hlb.getTemperature() <= 0.7) {
-                    BiomeManager.addBiome(BiomeType.COOL, entry);
-                }
-                if (hlb.getTemperature() >= 0.9 && hlb.getTemperature() <= 1.0) {
-                    BiomeManager.addBiome(BiomeType.DESERT, entry);
-                }
-                BiomeManager.addSpawnBiome(hlb);
-                BiomeManager.addStrongholdBiome(hlb);
-                if (hlb.equals(meadow) || hlb.equals(highlandsBiome)
-                    || hlb.equals(lowlands) || hlb.equals(mojave)) {
-                    BiomeManager.addVillageBiome(hlb, true);
-                }
-            }
-
-        }
+//        for (int i = 0; i < biomesForHighlands.size(); i++) {
+//            Biome hlb = biomesForHighlands.get(i);
+//            if (!(hlb == null)) {
+//                //System.out.println(hlb.biomeName + " has been added to the biome list.");
+//
+//                BiomeEntry entry = new BiomeEntry(hlb, 10);
+//                BiomeType type = (hlb.getTemperature() < 0.3 ? BiomeType.ICY : hlb.getTemperature() < 0.5 ? BiomeType.COOL
+//                    : hlb.getTemperature() < 1.0 ? BiomeType.WARM : BiomeType.DESERT);
+//                BiomeManager.addBiome(type, entry);
+//                if (hlb.getTemperature() >= 0.5 && hlb.getTemperature() <= 0.7) {
+//                    BiomeManager.addBiome(BiomeType.COOL, entry);
+//                }
+//                if (hlb.getTemperature() >= 0.9 && hlb.getTemperature() <= 1.0) {
+//                    BiomeManager.addBiome(BiomeType.DESERT, entry);
+//                }
+//                BiomeManager.addSpawnBiome(hlb);
+//                BiomeManager.addStrongholdBiome(hlb);
+//                if (hlb.equals(meadow) || hlb.equals(highlandsBiome)
+//                    || hlb.equals(lowlands) || hlb.equals(mojave)) {
+//                    BiomeManager.addVillageBiome(hlb, true);
+//                }
+//            }
+//
+//        }
         if (HighlandsSettings.vanillaBiomeChanges) {
             BiomeManager.addVillageBiome(Biomes.ICE_PLAINS, true);
         }

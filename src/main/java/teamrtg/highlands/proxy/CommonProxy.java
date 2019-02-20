@@ -17,6 +17,7 @@ import teamrtg.highlands.init.HighlandsBlocks;
 import teamrtg.highlands.generator.GeneratePlants;
 import teamrtg.highlands.generator.GenerateRiverRapids;
 import teamrtg.highlands.generator.GenerateTrees;
+import teamrtg.highlands.init.HighlandsItems;
 
 import java.io.File;
 
@@ -36,6 +37,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(eventMgr);
 
         MinecraftForge.EVENT_BUS.register(HighlandsBlocks.class);
+        MinecraftForge.EVENT_BUS.register(HighlandsItems.class);
 
         config = new Configuration(new File(event.getModConfigurationDirectory() + File.separator + "highlands.cfg"));
         config.load();
@@ -51,16 +53,12 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(genPlants, 10);
         GameRegistry.registerWorldGenerator(genRRapids, 10);
 
-        HighlandsSettings.constructSettings();
-
-        HighlandsBiomes.constructBiomes();
-        HighlandsBiomes.setUpAllSubBiomes();
-        HighlandsBiomes.setUpBiomeManager();
-        HighlandsBiomes.modifyVanillaBiomes();
-
-        if (event.getSide().equals(Side.CLIENT)) {
-            HighlandsBlocks.registerRenders();
-        }
+//        HighlandsSettings.constructSettings();
+//
+//        HighlandsBiomes.constructBiomes();
+//        HighlandsBiomes.setUpAllSubBiomes();
+//        HighlandsBiomes.setUpBiomeManager();
+//        HighlandsBiomes.modifyVanillaBiomes();
 
         HighlandsRecipes.init();
 
