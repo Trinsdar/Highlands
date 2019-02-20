@@ -38,6 +38,7 @@ public class CommonProxy {
 
         MinecraftForge.EVENT_BUS.register(HighlandsBlocks.class);
         MinecraftForge.EVENT_BUS.register(HighlandsItems.class);
+        MinecraftForge.EVENT_BUS.register(HighlandsBiomes.class);
 
         config = new Configuration(new File(event.getModConfigurationDirectory() + File.separator + "highlands.cfg"));
         config.load();

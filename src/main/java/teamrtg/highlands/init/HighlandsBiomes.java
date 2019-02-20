@@ -9,6 +9,8 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 import net.minecraftforge.common.BiomeManager.BiomeType;
 
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import teamrtg.highlands.Config;
 import teamrtg.highlands.HighlandsSettings;
 import teamrtg.highlands.biome.BiomeGenAdirondacks;
@@ -34,6 +36,7 @@ import teamrtg.highlands.biome.BiomeGenPoplarHills;
 import teamrtg.highlands.biome.BiomeGenRedwoodForest;
 import teamrtg.highlands.biome.BiomeGenTropHills;
 import teamrtg.highlands.biome.BiomeGenTropicalIslands;
+import teamrtg.highlands.reference.ModInfo;
 import teamrtg.highlands.util.BiomeUtils;
 
 /*
@@ -88,113 +91,122 @@ public class HighlandsBiomes {
     //ArrayList of biomes that have foothills, not that are foothills.
     public static ArrayList<Biome> foothillsBiomes = new ArrayList<Biome>();
 
-    public static void constructBiomes() {
+    @SubscribeEvent
+    public static void registerBiomes(RegistryEvent.Register<Biome> event) {
 
         //main biomes
 
         if (Config.alpsGenerate.getBoolean(true)) {
 
-            alps = new BiomeGenAlps(Config.alpsID.getInt());
+            alps = registerBiome(event, new BiomeGenAlps(Config.alpsID.getInt()), "alps");
             biomesForHighlands.add(alps);
 
             if (canHaveFoothills(alps)) {
-                alpsFoothills = new BiomeGenAlpsFoothills(Config.alpsID.getInt() + 128);
+                alpsFoothills = registerBiome(event, new BiomeGenAlpsFoothills(Config.alpsID.getInt() + 128), "alps_foothills");
                 biomesForHighlands.add(alpsFoothills);
                 foothillsBiomes.add(alps);
             }
         }
         if (Config.badlandsGenerate.getBoolean(true)) {
 
-            badlands = new BiomeGenBadlands(Config.badlandsID.getInt());
+            badlands = registerBiome(event, new BiomeGenBadlands(Config.badlandsID.getInt()), "badlands");
             biomesForHighlands.add(badlands);
 
             if (canHaveFoothills(badlands)) {
-                badlandsFoothills = new BiomeGenBadlandsFoothills(Config.badlandsID.getInt() + 128);
+                badlandsFoothills = registerBiome(event, new BiomeGenBadlandsFoothills(Config.badlandsID.getInt() + 128), "badlands_foothills");
                 biomesForHighlands.add(badlandsFoothills);
                 foothillsBiomes.add(badlands);
             }
         }
         if (Config.poplarHillsGenerate.getBoolean(true)) {
-            poplarHills = new BiomeGenPoplarHills(Config.poplarHillsID.getInt());
+            poplarHills = registerBiome(event, new BiomeGenPoplarHills(Config.poplarHillsID.getInt()), "poplar_hills");
             biomesForHighlands.add(poplarHills);
         }
         if (Config.highlandsbGenerate.getBoolean(true)) {
-            highlandsBiome = new BiomeGenHighlands(Config.highlandsbID.getInt());
+            highlandsBiome = registerBiome(event, new BiomeGenHighlands(Config.highlandsbID.getInt()), "highlands");
             biomesForHighlands.add(highlandsBiome);
         }
         if (Config.lowlandsGenerate.getBoolean(true)) {
-            lowlands = new BiomeGenLowlands(Config.lowlandsID.getInt());
+            lowlands = registerBiome(event, new BiomeGenLowlands(Config.lowlandsID.getInt()), "lowlands");
             biomesForHighlands.add(lowlands);
         }
         if (Config.meadowGenerate.getBoolean(true)) {
-            meadow = new BiomeGenMeadow(Config.meadowID.getInt());
+            meadow = registerBiome(event, new BiomeGenMeadow(Config.meadowID.getInt()), "meadow");
             biomesForHighlands.add(meadow);
         }
         if (Config.pinelandsGenerate.getBoolean(true)) {
-            pinelands = new BiomeGenPinelands(Config.pinelandsID.getInt());
+            pinelands = registerBiome(event, new BiomeGenPinelands(Config.pinelandsID.getInt()), "pinelands");
             biomesForHighlands.add(pinelands);
         }
         if (Config.redwoodForestGenerate.getBoolean(true)) {
-            redwoodForest = new BiomeGenRedwoodForest(Config.redwoodForestID.getInt());
+            redwoodForest = registerBiome(event, new BiomeGenRedwoodForest(Config.redwoodForestID.getInt()), "redwood_forest");
             biomesForHighlands.add(redwoodForest);
         }
         if (Config.mojaveGenerate.getBoolean(true)) {
-            mojave = new BiomeGenMojave(Config.mojaveID.getInt());
+            mojave = registerBiome(event, new BiomeGenMojave(Config.mojaveID.getInt()), "mojave");
             biomesForHighlands.add(mojave);
         }
         if (Config.greyMtnsGenerate.getBoolean(true)) {
 
-            greyMtns = new BiomeGenGreyMountains(Config.greyMtnsID.getInt());
+            greyMtns = registerBiome(event, new BiomeGenGreyMountains(Config.greyMtnsID.getInt()), "grey_mountains");
             biomesForHighlands.add(greyMtns);
 
             if (canHaveFoothills(greyMtns)) {
-                greyMtnsFoothills = new BiomeGenGreyMountainsFoothills(Config.greyMtnsID.getInt() + 128);
+                greyMtnsFoothills = registerBiome(event, new BiomeGenGreyMountainsFoothills(Config.greyMtnsID.getInt() + 128), "grey_mountains_foothils");
                 biomesForHighlands.add(greyMtnsFoothills);
                 foothillsBiomes.add(greyMtns);
             }
         }
         if (Config.tropHillsGenerate.getBoolean(true)) {
-            tropHills = new BiomeGenTropHills(Config.tropHillsID.getInt());
+            tropHills = registerBiome(event, new BiomeGenTropHills(Config.tropHillsID.getInt()), "tropical_hills");
             biomesForHighlands.add(tropHills);
         }
         if (Config.dryForestGenerate.getBoolean(true)) {
-            dryForest = new BiomeGenDryForest(Config.dryForestID.getInt());
+            dryForest = registerBiome(event, new BiomeGenDryForest(Config.dryForestID.getInt()), "dry_forest");
             biomesForHighlands.add(dryForest);
         }
         if (Config.adirondackGenerate.getBoolean(true)) {
 
-            adirondack = new BiomeGenAdirondacks(Config.adirondackID.getInt());
+            adirondack = registerBiome(event, new BiomeGenAdirondacks(Config.adirondackID.getInt()), "adirondack");
             biomesForHighlands.add(adirondack);
 
             if (canHaveFoothills(adirondack)) {
-                adirondackFoothills = new BiomeGenAdirondacksFoothills(Config.adirondackID.getInt() + 128);
+                adirondackFoothills = registerBiome(event, new BiomeGenAdirondacksFoothills(Config.adirondackID.getInt() + 128), "adirondack_foothills");
                 biomesForHighlands.add(adirondackFoothills);
                 foothillsBiomes.add(adirondack);
             }
         }
         if (Config.bambooForestGenerate.getBoolean(true)) {
-            bambooForest = new BiomeGenBambooForest(Config.bambooForestID.getInt());
+            bambooForest = registerBiome(event, new BiomeGenBambooForest(Config.bambooForestID.getInt()), "bamboo_forest");
             biomesForHighlands.add(bambooForest);
         }
         if (Config.dunesGenerate.getBoolean(true)) {
-            dunes = new BiomeGenDunes(Config.dunesID.getInt());
+            dunes = registerBiome(event, new BiomeGenDunes(Config.dunesID.getInt()), "dunes");
             biomesForHighlands.add(dunes);
         }
 
 
         //sub-biomes
         if (Config.lakeGenerate.getBoolean(true)) {
-            lake = new BiomeGenLake(Config.lakeID.getInt());
+            lake = registerBiome(event, new BiomeGenLake(Config.lakeID.getInt()), "lake");
             subBiomes.add(lake);
         }
         if (Config.baldHillGenerate.getBoolean(true)) {
-            baldHill = new BiomeGenBaldHill(Config.baldHillID.getInt());
+            baldHill = registerBiome(event, new BiomeGenBaldHill(Config.baldHillID.getInt()), "bald_hills");
             subBiomes.add(baldHill);
         }
         if (Config.tropicalIslandsGenerate.getBoolean(true)) {
-            tropicalIslands = new BiomeGenTropicalIslands(Config.tropicalIslandsID.getInt());
+            tropicalIslands = registerBiome(event, new BiomeGenTropicalIslands(Config.tropicalIslandsID.getInt()), "tropical_islands");
             subBiomes.add(tropicalIslands);
         }
+    }
+
+    private static Biome registerBiome(RegistryEvent.Register<Biome> event, Biome biome, String name) {
+        biome.setRegistryName(ModInfo.MOD_ID, name);
+
+        event.getRegistry().register(biome);
+
+        return biome;
     }
 
 
