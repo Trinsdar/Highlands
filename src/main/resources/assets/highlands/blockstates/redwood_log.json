@@ -1,14 +1,16 @@
 {
     "variants": {
+        "axis=x": {
+            "model": "highlands:redwood_log",
+             "x": 90,
+             "y": 90
+        },
         "axis=y": {
             "model": "highlands:redwood_log"
         },
         "axis=z": {
-            "model": "highlands:redwood_log_side"
-        },
-        "axis=x": {
-            "model": "highlands:redwood_log_side",
-            "y": 90
+            "model": "highlands:redwood_log",
+            "x": 90
         },
         "axis=none": {
             "model": "highlands:redwood_bark"

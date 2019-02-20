@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -38,6 +39,7 @@ public class BlockHighlandsSapling extends BlockBush implements IGrowable {
         treeType = type;
         this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
 
+        this.setSoundType(SoundType.PLANT);
         this.setCreativeTab(HighlandsBlocks.tabHighlands);
     }
 

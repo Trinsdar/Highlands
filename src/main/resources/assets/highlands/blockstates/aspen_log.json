@@ -1,14 +1,16 @@
 {
     "variants": {
+        "axis=x": {
+            "model": "highlands:aspen_log",
+            "x": 90,
+            "y": 90
+        },
         "axis=y": {
             "model": "highlands:aspen_log"
         },
         "axis=z": {
-            "model": "highlands:aspen_log_side"
-        },
-        "axis=x": {
-            "model": "highlands:aspen_log_side",
-            "y": 90
+            "model": "highlands:aspen_log",
+            "x": 90
         },
         "axis=none": {
             "model": "highlands:aspen_bark"

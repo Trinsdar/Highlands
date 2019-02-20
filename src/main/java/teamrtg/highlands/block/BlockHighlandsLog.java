@@ -45,17 +45,19 @@ public class BlockHighlandsLog extends BlockLog {
 
         return FULL_BLOCK_AABB;
     }
-
-    public boolean isOpaqueCube() {
-
+    
+    @Override
+    public boolean isFullCube(IBlockState state)
+    {
         if (treeType == null) {
             return true;
         }
         return !treeType.equals(HighlandsBlocks.EnumTypeTree.BAMBOO);
     }
 
-    public boolean isFullCube() {
-
+    @Override
+    public boolean isOpaqueCube(IBlockState state)
+    {
         if (treeType == null) {
             return true;
         }

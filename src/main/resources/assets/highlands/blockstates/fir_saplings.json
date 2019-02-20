@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "stage=0": {
+            "model": "highlands:fir_sapling"
+        },
+        "stage=1": {
+            "model": "highlands:fir_sapling"
+        }
+    }
+}

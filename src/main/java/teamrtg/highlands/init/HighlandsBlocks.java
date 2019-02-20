@@ -94,7 +94,6 @@ public class HighlandsBlocks {
             saplings[i] = register(event, new BlockHighlandsSapling(EnumTypeTree.META_LOOKUP[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_saplings");
             stairs[i] = register(event, new BlockHighlandsStair(EnumTypeTree.META_LOOKUP[i], planks[i]), EnumTypeTree.META_LOOKUP[i].getName() + "_stairs");
 
-
             OreDictionary.registerOre("logWood", woods[i]);
             OreDictionary.registerOre("plankWood", planks[i]);
             OreDictionary.registerOre("treeLeaves", leaves[i]);
