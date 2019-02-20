@@ -1,1 +1,3 @@
+This is a 1.12.2 port of Highlands originally by sdj64 and ported to 1.10.2 by srs-bsns and whichonespink44. all credit goes to the three of them for getting it to a stage that I was therefore easily able to port to 1.12.2
+
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">Creative Commons Attribution-ShareAlike 2.0 Generic License</a>.
